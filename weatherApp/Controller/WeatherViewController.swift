@@ -19,6 +19,9 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var searchField: UITextField!
     
+    @IBOutlet weak var conditionLabel: UILabel!
+    
+    
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     override func viewDidLoad() {
@@ -69,6 +72,7 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.temperatureLabel.text = weather.temperatureString
             self.weatherConditionImage.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.cityName
+            self.conditionLabel.text? = weather.description.capitalizedFirst()
         }
     }
     
@@ -88,11 +92,20 @@ extension WeatherViewController: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
-            weatherManager.fetchWeather(latitude: lat, longitude: lon)
+            weatherManager.fetchWeatherGPS(latitude: lat, longitude: lon)
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
     
+}
+
+// MARK: - First letter uppercased
+extension String {
+func capitalizedFirst() -> String {
+    let first = self[self.startIndex ..< self.index(startIndex, offsetBy: 1)]
+    let rest = self[self.index(startIndex, offsetBy: 1) ..< self.endIndex]
+    return first.uppercased() + rest.lowercased()
+}
 }

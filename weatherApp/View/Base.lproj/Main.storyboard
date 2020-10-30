@@ -103,13 +103,21 @@
                                     <constraint firstItem="LV8-A4-Mz7" firstAttribute="top" secondItem="HyN-OD-tvf" secondAttribute="top" id="wNQ-HQ-Lcv"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qg4-gm-oOl">
+                                <rect key="frame" x="183" y="248" width="48" height="20.5"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HyN-OD-tvf" secondAttribute="trailing" constant="40" id="B5l-Jl-Zbv"/>
                             <constraint firstItem="UJ6-ip-VcL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DKy-KE-WTu"/>
+                            <constraint firstItem="qg4-gm-oOl" firstAttribute="top" secondItem="0bC-EE-p3r" secondAttribute="bottom" constant="8" id="Dsu-m7-G0B"/>
                             <constraint firstItem="lId-9c-IUQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E8p-QF-vvg"/>
                             <constraint firstItem="0bC-EE-p3r" firstAttribute="top" secondItem="HyN-OD-tvf" secondAttribute="bottom" constant="66" id="EUD-OO-6LS"/>
+                            <constraint firstItem="qg4-gm-oOl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UzA-vH-LBC"/>
                             <constraint firstItem="0bC-EE-p3r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZFY-i1-dzw"/>
                             <constraint firstItem="UJ6-ip-VcL" firstAttribute="top" secondItem="lId-9c-IUQ" secondAttribute="bottom" constant="55" id="fpf-Ye-qo4"/>
                             <constraint firstItem="HyN-OD-tvf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="jD4-1r-zsK"/>
@@ -120,6 +128,7 @@
                     </view>
                     <connections>
                         <outlet property="cityLabel" destination="0bC-EE-p3r" id="Zif-Ho-9dD"/>
+                        <outlet property="conditionLabel" destination="qg4-gm-oOl" id="A5t-Ai-HqX"/>
                         <outlet property="searchField" destination="LV8-A4-Mz7" id="c1U-9E-mNx"/>
                         <outlet property="temperatureLabel" destination="WRt-6l-e9B" id="y8A-jw-ljZ"/>
                         <outlet property="weatherConditionImage" destination="lId-9c-IUQ" id="fTJ-6Z-16B"/>
