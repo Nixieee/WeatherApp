@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-
+import Network
 class WeatherViewController: UIViewController {
 
     @IBOutlet weak var cityLabel: UILabel!
@@ -24,6 +24,40 @@ class WeatherViewController: UIViewController {
     
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
+    let monitor = NWPathMonitor()
+    let queue = DispatchQueue(label: "InternetConnectionMonitor")
+    func alert(){
+    let alert = UIAlertController(title: "Mobile Data is Turned Off", message: "Turn on mobile data or use Wi-Fi to access data.", preferredStyle: .alert)
+    
+    let settingsAction = UIAlertAction(title: "Settings", style: .default) {
+        [] _ in
+
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                print("Settings opened: \(success)") // Prints true
+            })
+        }
+    }
+    let actionOK = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(settingsAction)
+        alert.addAction(actionOK)
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+                       if pathUpdateHandler.status == .satisfied {
+                           print("Internet connection is on.")
+                       } else {
+                        DispatchQueue.main.async{
+                        self.present(alert, animated: true)
+                        }
+                       }
+                   }
+
+                   monitor.start(queue: queue)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -33,8 +67,10 @@ class WeatherViewController: UIViewController {
         
         weatherManager.delegate = self
         searchField.delegate = self
+        alert()
+        }
     }
-}
+
 
 // MARK: - UITextFieldDelegate
 extension WeatherViewController: UITextFieldDelegate {

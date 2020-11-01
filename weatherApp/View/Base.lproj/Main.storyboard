@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -109,6 +109,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtX-hX-z4r">
+                                <rect key="frame" x="359.5" y="836" width="25.5" height="22"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" image="list.dash" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <segue destination="eW9-GW-OCq" kind="presentation" identifier="AddLocation" id="0G5-S8-iQk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -117,9 +127,11 @@
                             <constraint firstItem="qg4-gm-oOl" firstAttribute="top" secondItem="0bC-EE-p3r" secondAttribute="bottom" constant="8" id="Dsu-m7-G0B"/>
                             <constraint firstItem="lId-9c-IUQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E8p-QF-vvg"/>
                             <constraint firstItem="0bC-EE-p3r" firstAttribute="top" secondItem="HyN-OD-tvf" secondAttribute="bottom" constant="66" id="EUD-OO-6LS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jtX-hX-z4r" secondAttribute="trailing" constant="29" id="O7c-TN-TBk"/>
                             <constraint firstItem="qg4-gm-oOl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UzA-vH-LBC"/>
                             <constraint firstItem="0bC-EE-p3r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZFY-i1-dzw"/>
                             <constraint firstItem="UJ6-ip-VcL" firstAttribute="top" secondItem="lId-9c-IUQ" secondAttribute="bottom" constant="55" id="fpf-Ye-qo4"/>
+                            <constraint firstAttribute="bottom" secondItem="jtX-hX-z4r" secondAttribute="bottom" constant="38" id="gWT-tE-cW2"/>
                             <constraint firstItem="HyN-OD-tvf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="jD4-1r-zsK"/>
                             <constraint firstItem="lId-9c-IUQ" firstAttribute="top" secondItem="0bC-EE-p3r" secondAttribute="bottom" constant="44.5" id="tSn-UA-V13"/>
                             <constraint firstItem="HyN-OD-tvf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="xPb-OB-Ncy"/>
@@ -138,10 +150,91 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
         </scene>
+        <!--Add Location View Controller-->
+        <scene sceneID="uyD-gt-vfR">
+            <objects>
+                <viewController id="eW9-GW-OCq" customClass="AddLocationViewController" customModule="weatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cxC-gH-uov">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iuh-Na-5B3">
+                                <rect key="frame" x="20" y="155" width="374" height="653"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="rkN-Kg-Com">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rkN-Kg-Com" id="D3h-9a-ifh">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OE1-eQ-hMe">
+                                                    <rect key="frame" x="34" y="11" width="326" height="0.0"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="textLabel"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OE1-eQ-hMe" firstAttribute="leading" secondItem="D3h-9a-ifh" secondAttribute="leadingMargin" constant="14" id="HmH-fh-ewk"/>
+                                                <constraint firstItem="OE1-eQ-hMe" firstAttribute="top" secondItem="D3h-9a-ifh" secondAttribute="topMargin" id="Yef-kG-RQt"/>
+                                                <constraint firstAttribute="trailing" secondItem="OE1-eQ-hMe" secondAttribute="trailing" constant="14" id="aoi-Fu-iPs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rC7-qV-WFg">
+                                <rect key="frame" x="61" y="61" width="244" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="go"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pu-fn-84F">
+                                <rect key="frame" x="313" y="58" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="DDI-se-OjC"/>
+                                    <constraint firstAttribute="width" constant="40" id="O4O-Ld-Wza"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" image="plus" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPressed:" destination="eW9-GW-OCq" eventType="touchUpInside" id="T1h-Yp-BhF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NcJ-Dv-yzV" firstAttribute="trailing" secondItem="8pu-fn-84F" secondAttribute="trailing" constant="61" id="Kzy-hZ-Vtn"/>
+                            <constraint firstItem="8pu-fn-84F" firstAttribute="leading" secondItem="rC7-qV-WFg" secondAttribute="trailing" constant="8" id="LCe-9a-pZb"/>
+                            <constraint firstItem="iuh-Na-5B3" firstAttribute="bottom" secondItem="NcJ-Dv-yzV" secondAttribute="bottom" id="LH2-jf-6ei"/>
+                            <constraint firstItem="iuh-Na-5B3" firstAttribute="leading" secondItem="NcJ-Dv-yzV" secondAttribute="leading" constant="20" id="R7k-qm-LiJ"/>
+                            <constraint firstItem="iuh-Na-5B3" firstAttribute="top" secondItem="8pu-fn-84F" secondAttribute="bottom" constant="57" id="VZI-vx-WBD"/>
+                            <constraint firstItem="rC7-qV-WFg" firstAttribute="leading" secondItem="NcJ-Dv-yzV" secondAttribute="leading" constant="61" id="Vm3-a9-VrU"/>
+                            <constraint firstItem="rC7-qV-WFg" firstAttribute="top" secondItem="NcJ-Dv-yzV" secondAttribute="top" constant="61" id="gWN-So-8L6"/>
+                            <constraint firstItem="NcJ-Dv-yzV" firstAttribute="trailing" secondItem="iuh-Na-5B3" secondAttribute="trailing" constant="20" id="n3Q-9G-JMC"/>
+                            <constraint firstItem="8pu-fn-84F" firstAttribute="top" secondItem="NcJ-Dv-yzV" secondAttribute="top" constant="58" id="u39-6M-EJU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NcJ-Dv-yzV"/>
+                    </view>
+                    <connections>
+                        <outlet property="LocationTableView" destination="iuh-Na-5B3" id="7vb-tl-Hqe"/>
+                        <outlet property="locationSearchField" destination="rC7-qV-WFg" id="Mtg-UH-yZP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFX-0E-bP0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="863.768115942029" y="115.84821428571428"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="sun.max" catalog="system" width="128" height="124"/>
         <image name="thermometer" catalog="system" width="87" height="128"/>
     </resources>
